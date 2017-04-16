@@ -1,4 +1,5 @@
 ﻿using Discord;
+using Discord.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,25 @@ namespace DiscordBot
                 x.LogHandler = Log;
             });
 
+            discord.UsingCommands(x =>
+            {
+                x.PrefixChar = '$';
+                x.AllowMentionPrefix = true;
+            });
+
+            var commands = discord.GetService<CommandService>();
+
+            commands.CreateCommand("hello")
+                .Do(async (e) =>
+                {
+                    await e.Channel.SendMessage("Hi!");
+                });
+
             discord.ExecuteAndWait(async () =>
             {
                 await discord.Connect("MzAzMjY2MTY4MDMzMTE2MTYz.C9VrTg.GItnjGeV-JRpg3qG2OKC9JpDqTw", TokenType.Bot);
             });
+
         }
 
         private void Log(object sender, LogMessageEventArgs e)
