@@ -10,6 +10,7 @@ namespace DiscordBot
     {
         static void Main(string[] args)
         {
+            MyBot bot = new MyBot();
         }
     }
 }
