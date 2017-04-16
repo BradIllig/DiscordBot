@@ -2,9 +2,11 @@
 using Discord.Commands;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DiscordBot
 {
@@ -16,14 +18,13 @@ namespace DiscordBot
         string[] Memes;
         Random rand = new Random();
 
-        public MyBot()
-        {    
-            // Enter name of JPG here
-            Memes = new string[]
-                {
-                    "meme/"
-                };
+        string directory = @".\Memes\";
+        List<string> memeImages = new List<string>();
 
+
+    public MyBot()
+        {
+            
             discord = new DiscordClient(x =>
             {
                 x.LogLevel = LogSeverity.Info;
@@ -50,13 +51,18 @@ namespace DiscordBot
 
         private void RegisterMemeCommand()
         {
-            commands.CreateCommand("meme")
+            foreach (string myMeme in Directory.GetFiles(directory, "*.jpg", SearchOption.AllDirectories))
+            {
+                memeImages.Add(myMeme);
+            }
+
+            commands.CreateCommand("freshmemepls")
                 .Do(async (e) =>
                 {
-
-                    int randMeme = rand.Next(Memes.Length);
-                    string memeToPost = Memes[randMeme];
+                    int randMeme = rand.Next(memeImages.ToArray().Length);
+                    string memeToPost = memeImages[randMeme];
                     await e.Channel.SendFile(memeToPost);
+                    await e.Channel.SendMessage("*Send your memes to* **Illigbrad@hotmail.com**");
                 });
         }
 
