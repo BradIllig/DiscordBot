@@ -31,7 +31,7 @@ namespace DiscordBot
             commands.CreateCommand("hello")
                 .Do(async (e) =>
                 {
-                    await e.Channel.SendMessage("Hi!");
+                    await e.Channel.SendMessage("fuk u");
                 });
 
             discord.ExecuteAndWait(async () =>
