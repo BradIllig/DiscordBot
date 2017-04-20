@@ -20,6 +20,7 @@ namespace DiscordBot
         string directory = @".\Memes\";
         List<string> memeImages = new List<string>();
 
+        //The marine response
         String[] marineText = {
         "What the fuck did you just fucking say about me you little bitch I’ll have you know I graduated top of my class in the Navy Seals and I’ve been involved in numerous secret raids",
         "on Al-Quaeda and I have over 300 confirmed kills I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces You are nothing to me but just another target",
@@ -47,11 +48,11 @@ namespace DiscordBot
                 x.AllowMentionPrefix = true;
             });
 
-            
-
             commands = discord.GetService<CommandService>();
 
+            //Used to bypass the need for a prefix and will listen for key words as commands
             ListenForCommands();
+            //Says in TTS who joins a Voice Channel
             AnnounceVCJoin();
 
 
