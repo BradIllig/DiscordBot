@@ -84,12 +84,32 @@ namespace DiscordBot
                             string memeToPost = memeImages[randMeme];
                             await e.Channel.SendFile(memeToPost);
                         }
+                        else if (e.Message.Text.ToLower().Contains("coin"))
+                        {
+                                if (rand.Next() % 2 == 0)
+                                {
+                                    await e.Channel.SendMessage("Heads");
+                                }
+                                else
+                                {
+                                    await e.Channel.SendMessage("Tails");
+                                }
+                        }
+                        else if (e.Message.Text.ToLower().Contains("roll"))
+                        {
+
+                            await e.Channel.SendMessage("");
+                        }
                         else
                         {
                             await e.Channel.SendMessage("fuk u");
                         }
                     }
-                    if (e.Message.Text.ToLower().Contains("re"))
+
+
+
+
+                    if (e.Message.Text.ToLower().Contains("ree"))
                     {
                         foreach (string marine in marineText)
                         {
@@ -101,16 +121,15 @@ namespace DiscordBot
         }
         private void AnnounceVCJoin()
         {
-
             discord.UserUpdated += async (s, e) =>
             {
-                var logChannel = e.Server.FindChannels("disabledautists").FirstOrDefault();
+                var logChannel = e.Server.FindChannels("autistsunitedhq").FirstOrDefault();
 
                 if (e.After.VoiceChannel == null) return;
 
                 if (e.Before.VoiceChannel == e.After.VoiceChannel) return;
 
-                await logChannel.SendTTSMessage($"{e.After.Name} Joined");
+                await logChannel.SendTTSMessage($"{e.After.Name} Joined {e.After.VoiceChannel}");
             };
         }
 
