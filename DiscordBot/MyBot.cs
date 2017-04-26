@@ -33,6 +33,22 @@ namespace DiscordBot
         "and you will drown in it You’re fucking dead, kiddo."
         };
 
+        //String[] ArgText = {
+        //"What in Davy Jones’ locker did ye just bark at me, ye scurvy bilgerat? I’ll have ye know I be the meanest cutthroat on the seven seas,",
+        //"and I’ve led numerous raids on fishing villages, and raped over 300 wenches.I be trained in hit-and-run pillaging and be the deadliest with a pistol of all the captains",
+        //"on the high seas.Ye be nothing to me but another source o’ swag.I’ll have yer guts for garters and keel haul ye like never been done before, hear me true. You think ye can hide behind",
+        //"your newfangled computing device? Think twice on that, scallywag. As we parley I be contacting my secret network o’ pirates across the sea and yer port is being tracked right now",
+        //"so ye better prepare for the typhoon, weevil. The kind o’ monsoon that’ll wipe ye off the map.You’re sharkbait, fool.I can sail anywhere, in any waters, and can kill ye",
+        //"in o’er seven hundred ways, and that be just with me hook and fist.Not only do I be top o’ the line with a cutlass, but I have an entire pirate fleet at my beck and call and I’ll damned",
+        //"sure use it all to wipe yer arse off o’ the world, ye dog. If only ye had had the foresight to know what devilish wrath your jibe was about to incur, ye might have belayed the comment.",
+        //"But ye couldn’t, ye didn’t, and now ye’ll pay the ultimate toll, you buffoon. I’ll shit fury all over ye and ye’ll drown in the depths o’ it.You’re fish food now, lad."
+        //};
+
+        //String[] DoItText = {
+        //"DO IT, just DO IT! Don’t let your dreams be dreams. Yesterday, you said tomorrow. So just. DO IT! Make. your dreams. COME TRUE! Just… do it! Some people dream of success,",
+        //"while you’re gonna wake up and work HARD at it! NOTHING IS IMPOSSIBLE!You should get to the point where anyone else would quit, and you’re not gonna stop there.",
+        //"NO! What are you waiting for? … DO IT! Just… DO IT! Yes you can! Just do it! If you’re tired of starting over, stop. giving. up."
+        // };
 
     public MyBot()
         {
@@ -95,18 +111,16 @@ namespace DiscordBot
                                     await e.Channel.SendMessage("Tails");
                                 }
                         }
-                        else if (e.Message.Text.ToLower().Contains("roll"))
-                        {
+                        //else if (e.Message.Text.ToLower().Contains("roll"))
+                        //{
 
-                            await e.Channel.SendMessage("");
-                        }
+                        //    await e.Channel.SendMessage("");
+                        //}
                         else
                         {
                             await e.Channel.SendMessage("fuk u");
                         }
                     }
-
-
 
 
                     if (e.Message.Text.ToLower().Contains("ree"))
